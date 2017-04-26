@@ -1,0 +1,99 @@
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.17-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time                 Id Command    Argument
+2017-04-04T13:26:59.746551Z	    3 Query	CREATE USER 'dbadmin'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:27:06.943265Z	    3 Query	SHOW GRANTS FOR dbadmin@localhost
+2017-04-04T13:27:25.221099Z	    3 Query	CREATE USER 'superadmin'@'%' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:27:28.972106Z	    3 Query	CREATE USER 'mysqladmin'@'%.mysqltutorial.org' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:27:33.131815Z	    3 Query	CREATE USER remote
+2017-04-04T13:27:36.122121Z	    3 Query	SHOW GRANTS FOR remote
+2017-04-04T13:27:41.683432Z	    3 Query	CREATE USER 'api@localhost'
+2017-04-04T13:27:45.533640Z	    3 Query	SHOW GRANTS FOR 'api@localhost'
+2017-04-04T13:27:50.232449Z	    3 Query	CREATE USER remote
+2017-04-04T13:36:20.738453Z	    3 Query	SELECT DATABASE()
+2017-04-04T13:36:20.754053Z	    3 Init DB	mysql
+2017-04-04T13:36:20.785253Z	    3 Query	UPDATE user 
+SET password = PASSWORD('dolphin')
+WHERE user = 'dbadmin' AND 
+      host = 'localhost'
+2017-04-04T13:36:20.787753Z	    3 Query	FLUSH PRIVILEGES
+2017-04-04T13:36:25.021964Z	    3 Query	SELECT DATABASE()
+2017-04-04T13:36:25.021964Z	    3 Init DB	mysql
+2017-04-04T13:36:25.037564Z	    3 Query	UPDATE user 
+SET authentication_string = PASSWORD('dolphin')
+WHERE user = 'dbadmin' AND 
+      host = 'localhost'
+2017-04-04T13:36:25.118064Z	    3 Query	FLUSH PRIVILEGES
+2017-04-04T13:36:36.976394Z	    3 Query	SET PASSWORD FOR `dbadmin`@`localhost`=<secret>
+2017-04-04T13:37:12.867077Z	    3 Query	ALTER USER 'dbadmin'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:40:54.403826Z	    3 Query	CREATE USER 'super'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:40:58.159935Z	    3 Query	SHOW GRANTS FOR super@localhost
+2017-04-04T13:41:03.126046Z	    3 Query	GRANT ALL ON *.* TO 'super'@'localhost' WITH GRANT OPTION
+2017-04-04T13:41:06.970054Z	    3 Query	SHOW GRANTS FOR super@localhost
+2017-04-04T13:41:11.841568Z	    3 Query	CREATE USER 'auditor'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:41:11.841568Z	    3 Query	GRANT ALL ON classicmodels.* TO auditor@localhost
+2017-04-04T13:41:16.884978Z	    3 Query	CREATE USER 'rfc'@'%' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:41:16.884978Z	    3 Query	GRANT SELECT, UPDATE, DELETE ON classicmodels.* TO rfc
+2017-04-04T13:41:20.318487Z	    3 Query	CREATE TABLE city(
+   id INT PRIMARY KEY AUTO_INCREMENT, 
+   name VARCHAR(255)
+)
+2017-04-04T13:43:51.943093Z	    3 Query	SHOW GRANTS FOR user
+2017-04-04T13:44:04.721120Z	    3 Query	SHOW GRANTS FOR rfc
+2017-04-04T13:54:32.745361Z	    4 Connect	-root@localhost on  using TCP/IP
+2017-04-04T13:54:32.745361Z	    4 Connect	Access denied for user '-root'@'localhost' (using password: YES)
+2017-04-04T13:55:39.996989Z	    5 Connect	root@localhost on  using TCP/IP
+2017-04-04T13:55:39.996989Z	    5 Query	select @@version_comment limit 1
+2017-04-04T13:55:53.454016Z	    5 Query	SHOW GRANTS FOR 'rfc'@'localhost'
+2017-04-04T13:58:20.747319Z	    5 Query	CREATE DATABASE crm
+2017-04-04T13:58:23.977324Z	    5 Query	SELECT DATABASE()
+2017-04-04T13:58:23.977324Z	    5 Init DB	crm
+2017-04-04T13:58:28.762332Z	    5 Query	CREATE TABLE customer(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name varchar(255) NOT NULL, 
+    last_name VARCHAR(255) NOT NULL, 
+    phone VARCHAR(15) NOT NULL,
+    email VARCHAR(255)
+)
+2017-04-04T13:58:34.299842Z	    5 Query	INSERT INTO customer(first_name,last_name,phone,email)
+VALUES('John','Doe','(408)-987-7654','john.doe@mysqltutorial.org'),
+      ('Lily','Bush','(408)-987-7985','lily.bush@mysqltutorial.org')
+2017-04-04T13:58:46.767866Z	    5 Query	GRANT ALL ON crm.* TO crm_dev
+2017-04-04T13:58:49.925372Z	    5 Query	GRANT SELECT ON crm.* TO crm_read
+2017-04-04T13:58:54.220379Z	    5 Query	GRANT INSERT, UPDATE, DELETE ON crm.* TO crm_write
+2017-04-04T13:59:05.052898Z	    5 Query	CREATE USER 'crm_dev1'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:59:09.382905Z	    5 Query	CREATE USER 'crm_read1'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:59:14.560414Z	    5 Query	CREATE USER 'crm_write1'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:59:18.185420Z	    5 Query	CREATE USER 'crm_write2'@'localhost' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2017-04-04T13:59:32.867945Z	    5 Query	SHOW GRANTS FOR crm_dev1@localhost
+2017-04-04T13:59:50.422974Z	    5 Query	SELECT current_role()
+2017-04-04T14:46:34.253782Z	    5 Query	SELECT user, host FROM mysql.user
+2017-04-04T14:46:38.773790Z	    5 Query	DROP USER dbadmin@mysqltutorial.org
+2017-04-04T14:46:42.638797Z	    5 Query	SELECT user, host FROM mysql.user
+2017-04-04T14:46:47.438805Z	    5 Query	SELECT user, host FROM mysql.user
+2017-04-04T14:46:52.578816Z	    5 Query	KILL 40
+2017-04-04T14:46:57.143824Z	    5 Query	DROP USER dbadmin@localhost
+2017-04-04T14:47:15.935373Z	    5 Query	ANALYZE TABLE payments
+2017-04-04T14:47:19.610381Z	    5 Query	ANALYZE TABLE payments
+2017-04-04T14:47:23.387888Z	    5 Query	OPTIMIZE TABLE table_name
+2017-04-04T14:47:30.017900Z	    5 Query	OPTIMIZE TABLE orders
+2017-04-04T14:47:33.525407Z	    5 Query	CHECK TABLE table_name
+2017-04-04T14:47:37.537914Z	    5 Query	CHECK TABLE orders
+2017-04-04T14:47:41.577921Z	    5 Query	REPAIR TABLE table_name
+2017-04-04T14:47:44.410427Z	    5 Query	REPAIR TABLE employees
+2017-04-04T14:48:40.977612Z	    5 Query	SHOW DATABASES
+2017-04-04T14:48:46.562625Z	    5 Query	SHOW SCHEMAS
+2017-04-04T14:48:57.175144Z	    5 Query	SHOW DATABASES LIKE '%schema'
+2017-04-04T14:49:01.627654Z	    5 Query	SELECT schema_name 
+FROM information_schema.schemata
+2017-04-04T14:49:05.237661Z	    5 Query	SELECT schema_name
+FROM information_schema.schemata
+WHERE schema_name LIKE '%schema' OR 
+      schema_name LIKE '%s'
+2017-04-04T14:49:27.037232Z	    5 Query	show tables
+2017-04-04T14:49:39.484754Z	    5 Query	SHOW FULL TABLES
+2017-04-04T14:49:50.524774Z	    5 Query	SELECT DATABASE()
+2017-04-04T14:50:19.514854Z	    5 Query	SELECT DATABASE()
+2017-04-04T14:50:26.417367Z	    5 Query	DESCRIBE orders
+2017-04-04T15:10:19.170751Z	    5 Query	select thread_id,command_type,argument from mysql.general_log
+2017-04-04T15:12:16.727786Z	    5 Query	show variables like 'general_log_file'
